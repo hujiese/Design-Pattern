@@ -181,3 +181,6 @@ Chain of Responsibility（CoR）模式也叫职责链模式或者职责连锁模
 
 ### 三、扩展案例 ###
 
+创建抽象类 AbstractLogger，带有详细的日志记录级别。然后创建三种类型的记录器，都扩展了 AbstractLogger。每个记录器消息的级别是否属于自己的级别，如果是则相应地打印出来，否则将不打印并把消息传给下一个记录器。
+
+![](https://i.imgur.com/9a9T0eK.jpg)
