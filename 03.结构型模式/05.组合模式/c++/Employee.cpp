@@ -34,12 +34,6 @@ Employee::~Employee()
 {
 	if (subordinates != NULL)
 	{
-		for (Employee * e : *subordinates)
-		{
-			delete e;
-			e = NULL;
-			subordinates->remove(e);
-		}
 		delete subordinates;
 		subordinates = NULL;
 	}

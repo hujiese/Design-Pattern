@@ -57,5 +57,14 @@ int main(void)
 	//调用 Blue 的 fill 方法
 	color3->fill();
 
+	delete shapeFactory;
+	delete shape1;
+	delete shape2;
+	delete shape3;
+
+	delete colorFactory;
+	delete color1;
+	delete color2;
+	delete color3;
 	return 0;
 }

@@ -16,9 +16,4 @@ void ShapeDecorator::draw()
 
 ShapeDecorator::~ShapeDecorator()
 {
-	if (decoratedShape != NULL)
-	{
-		delete decoratedShape;
-		decoratedShape = NULL;
-	}
 }

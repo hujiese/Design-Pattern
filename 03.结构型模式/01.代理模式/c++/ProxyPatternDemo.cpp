@@ -15,5 +15,7 @@ int main(void)
 	//图像将不会从磁盘加载
 	image->display();
 
+	delete image;
+
 	return 0;
 }

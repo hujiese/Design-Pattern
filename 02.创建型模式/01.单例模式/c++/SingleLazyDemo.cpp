@@ -11,5 +11,6 @@ int main(void)
 	//ÏÔÊ¾ÏûÏ¢
 	object->showMessage();
 
+	delete object;
 	return 0;
 }

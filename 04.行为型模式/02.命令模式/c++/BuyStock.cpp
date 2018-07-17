@@ -16,9 +16,4 @@ void BuyStock::execute()
 
 BuyStock::~BuyStock()
 {
-	if (abcStock != NULL)
-	{
-		delete abcStock;
-		abcStock = NULL;
-	}
 }

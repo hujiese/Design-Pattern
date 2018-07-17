@@ -18,5 +18,10 @@ int main(void)
 
 	broker->placeOrders();
 
+	delete abcStock;
+	delete buyStockOrder;
+	delete sellStockOrder;
+	delete broker;
+
 	return 0;
 }

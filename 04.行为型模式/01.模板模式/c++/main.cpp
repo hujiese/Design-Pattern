@@ -7,7 +7,7 @@ using namespace std;
 
 int main(void)
 {
-	Game *game = new Cricket();
+	Game *game = new Cricket();//¶àÌ¬
 	game->play();
 
 	cout << endl;
@@ -15,5 +15,6 @@ int main(void)
 	game = new Football();
 	game->play();
 
+	delete game;
 	return 0;
 }

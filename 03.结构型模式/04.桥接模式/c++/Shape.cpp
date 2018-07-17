@@ -16,9 +16,4 @@ void Shape::draw()
 
 Shape::~Shape()
 {
-	if (drawAPI != NULL)
-	{
-		delete drawAPI;
-		drawAPI = NULL;
-	}
 }

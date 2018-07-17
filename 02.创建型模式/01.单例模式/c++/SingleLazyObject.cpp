@@ -21,9 +21,4 @@ void SingleLazyObject::showMessage()
 
 SingleLazyObject::~SingleLazyObject()
 {
-	if (instance != NULL)
-	{
-		delete instance;
-		instance = NULL;
-	}
 }

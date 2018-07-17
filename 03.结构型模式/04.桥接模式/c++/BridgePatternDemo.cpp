@@ -12,5 +12,8 @@ int main(void)
 
 	redCircle->draw();
 	greenCircle->draw();
+
+	delete redCircle;
+	delete greenCircle;
 	return 0;
 }

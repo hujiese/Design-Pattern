@@ -16,9 +16,4 @@ void SellStock::execute()
 
 SellStock::~SellStock()
 {
-	if (abcStock != NULL)
-	{
-		delete abcStock;
-		abcStock = NULL;
-	}
 }

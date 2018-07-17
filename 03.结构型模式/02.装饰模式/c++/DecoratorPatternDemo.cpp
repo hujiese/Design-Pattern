@@ -22,5 +22,10 @@ int main(void)
 	cout << endl;
 	cout << "Rectangle of red border" << endl;
 	redRectangle->draw();
+
+	delete circle;
+	delete redCircle;
+	delete redRectangle;
+
 	return 0;
 }

@@ -32,5 +32,13 @@ int main(void)
 			cout << employee->toString() << endl;
 		}
 	}
+
+	delete CEO;
+	delete headSales;
+	delete headMarketing;
+	delete clerk1; 
+	delete clerk2;
+	delete salesExecutive1;
+	delete salesExecutive2;
 	return 0;
 }

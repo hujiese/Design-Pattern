@@ -28,5 +28,11 @@ int main(void)
 
 	//调用 Square 的 draw 方法
 	shape3->draw();
+
+	delete shapeFactory;
+	delete shape1;
+	delete shape2;
+	delete shape3;
+
 	return 0;
 }
