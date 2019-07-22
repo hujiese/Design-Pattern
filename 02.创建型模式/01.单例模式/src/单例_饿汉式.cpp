@@ -2,7 +2,7 @@
 using namespace std;
 
 
-//ÀÁººÊ½
+//¶öººÊ½
 class Singelton
 {
 private:
@@ -29,8 +29,6 @@ private:
 	static Singelton *m_psl;
 };
 
-//int g_count = 0;
-//¶öººÊ½
 Singelton *Singelton::m_psl = new Singelton();
 
 

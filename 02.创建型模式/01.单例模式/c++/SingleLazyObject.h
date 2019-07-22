@@ -1,15 +1,17 @@
 #pragma once
 #include <iostream>
+#include <memory>
+
 using namespace std;
 
 class SingleLazyObject
 {
 public:
-	static SingleLazyObject* getInstance();
+	static shared_ptr<SingleLazyObject> getInstance();
 	void showMessage();
 	virtual ~SingleLazyObject();
 
 private:
 	SingleLazyObject();
-	static SingleLazyObject* instance;
+	static shared_ptr<SingleLazyObject> instance;
 };

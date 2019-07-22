@@ -1,16 +1,18 @@
 #pragma once
 #include <iostream>
+#include <memory>
+
 using namespace std;
 
 class SingleHungryObject
 {
 public:
-	static SingleHungryObject* getInstance();
+	static shared_ptr<SingleHungryObject> getInstance();
 	void showMessage();
 	virtual ~SingleHungryObject();
 
 private:
 	SingleHungryObject();
-	static SingleHungryObject* instance;
+	static shared_ptr<SingleHungryObject> instance;
 };
 

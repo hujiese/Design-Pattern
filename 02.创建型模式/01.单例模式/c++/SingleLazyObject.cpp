@@ -5,11 +5,11 @@ SingleLazyObject::SingleLazyObject()
 {
 }
 
-SingleLazyObject* SingleLazyObject::getInstance()
+shared_ptr<SingleLazyObject> SingleLazyObject::getInstance()
 {
 	if (instance == NULL)
 	{
-		instance = new SingleLazyObject();
+		instance.reset(new SingleLazyObject());
 	}
 	return instance;
 }
@@ -21,4 +21,5 @@ void SingleLazyObject::showMessage()
 
 SingleLazyObject::~SingleLazyObject()
 {
+	cout << "dtor ...." << endl;
 }

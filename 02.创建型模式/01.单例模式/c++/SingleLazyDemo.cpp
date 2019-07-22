@@ -2,15 +2,17 @@
 #include "SingleLazyObject.h"
 
 using namespace std;
-SingleLazyObject* SingleLazyObject::instance = NULL;
+shared_ptr<SingleLazyObject> SingleLazyObject::instance = NULL;
 
 int main(void)
 {
-	SingleLazyObject* object = SingleLazyObject::getInstance();
-
+	shared_ptr<SingleLazyObject> object = SingleLazyObject::getInstance();
+	shared_ptr<SingleLazyObject> object2 = SingleLazyObject::getInstance();
+	shared_ptr<SingleLazyObject> object3 = SingleLazyObject::getInstance();
 	//ÏÔÊ¾ÏûÏ¢
 	object->showMessage();
+	object2->showMessage();
+	object3->showMessage();
 
-	delete object;
 	return 0;
 }

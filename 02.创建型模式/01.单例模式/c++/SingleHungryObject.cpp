@@ -5,7 +5,7 @@ SingleHungryObject::SingleHungryObject()
 {
 }
 
-SingleHungryObject* SingleHungryObject::getInstance()
+shared_ptr<SingleHungryObject> SingleHungryObject::getInstance()
 {
 	return instance;
 }
@@ -16,9 +16,5 @@ void SingleHungryObject::showMessage()
 }
 SingleHungryObject::~SingleHungryObject()
 {
-	if (instance != NULL)
-	{
-		delete instance;
-		instance = NULL;
-	}
+	cout << "dotr ....." << endl;
 }
