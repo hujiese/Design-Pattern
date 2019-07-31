@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include "RealImage.h"
+#include <memory>
 using namespace std;
 
 class ProxyImage :
@@ -15,7 +16,7 @@ public:
 	virtual ~ProxyImage();
 
 private:
-	RealImage* realImage;
+	shared_ptr<RealImage> realImage;
 	string fileName;
 };
 
