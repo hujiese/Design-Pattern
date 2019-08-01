@@ -5,7 +5,7 @@ Shape::Shape()
 {
 }
 
-Shape::Shape(DrawAPI* drawAPI) :drawAPI(drawAPI)
+Shape::Shape(shared_ptr<DrawAPI> drawAPI) :drawAPI(drawAPI)
 {
 }
 

@@ -5,7 +5,7 @@ class Circle :
 {
 public:
 	Circle();
-	Circle(int x, int y, int radius, DrawAPI* drawAPI);
+	Circle(int x, int y, int radius, shared_ptr<DrawAPI> drawAPI);
 	void draw();
 	virtual ~Circle();
 

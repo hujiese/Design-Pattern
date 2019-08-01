@@ -1,6 +1,7 @@
 #pragma once
 #include "DrawAPI.h"
 #include <iostream>
+#include <memory>
 using namespace std;
 
 class Shape
@@ -11,8 +12,8 @@ public:
 	virtual ~Shape();
 
 protected:
-	DrawAPI* drawAPI;
+	shared_ptr<DrawAPI> drawAPI;
 
-	Shape(DrawAPI* drawAPI);
+	Shape(shared_ptr<DrawAPI> drawAPI);
 };
 

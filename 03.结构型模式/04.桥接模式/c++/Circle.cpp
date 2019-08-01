@@ -5,7 +5,7 @@ Circle::Circle()
 {
 }
 
-Circle::Circle(int x, int y, int radius, DrawAPI* drawAPI) :x(x), y(y), radius(radius), Shape(drawAPI)
+Circle::Circle(int x, int y, int radius, shared_ptr<DrawAPI> drawAPI) :x(x), y(y), radius(radius), Shape(drawAPI)
 {
 }
 
@@ -16,9 +16,4 @@ void Circle::draw()
 }
 Circle::~Circle()
 {
-	if (drawAPI != NULL)
-	{
-		delete drawAPI;
-		drawAPI = NULL;
-	}
 }
