@@ -8,11 +8,11 @@ class RedShapeDecorator :
 {
 public:
 	RedShapeDecorator();
-	RedShapeDecorator(Shape* decoratedShape);
+	RedShapeDecorator(shared_ptr<Shape> decoratedShape);
 	virtual void draw();
 	virtual ~RedShapeDecorator();
 
 private:
-	void setRedBorder(Shape* decoratedShape);
+	void setRedBorder(shared_ptr<Shape> decoratedShape);
 };
 

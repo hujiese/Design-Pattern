@@ -5,7 +5,7 @@ ShapeDecorator::ShapeDecorator()
 {
 }
 
-ShapeDecorator::ShapeDecorator(Shape* decoratedShape) :decoratedShape(decoratedShape)
+ShapeDecorator::ShapeDecorator(shared_ptr<Shape> decoratedShape) :decoratedShape(decoratedShape)
 {
 }
 

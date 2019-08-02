@@ -1,16 +1,18 @@
 #pragma once
 #include "Shape.h"
 #include <iostream>
+#include <memory>
+using namespace std;
 class ShapeDecorator :
 	public Shape
 {
 public:
 	ShapeDecorator();
-	ShapeDecorator(Shape* decoratedShape);
+	ShapeDecorator(shared_ptr<Shape> decoratedShape);
 	virtual void draw();
 	virtual ~ShapeDecorator();
 
 protected:
-	Shape* decoratedShape;
+	shared_ptr<Shape> decoratedShape;
 };
 

@@ -5,7 +5,7 @@ RedShapeDecorator::RedShapeDecorator()
 {
 }
 
-RedShapeDecorator::RedShapeDecorator(Shape* decoratedShape) :ShapeDecorator(decoratedShape)
+RedShapeDecorator::RedShapeDecorator(shared_ptr<Shape> decoratedShape) :ShapeDecorator(decoratedShape)
 {
 }
 
@@ -15,7 +15,7 @@ void RedShapeDecorator::draw() {
 
 }
 
-void RedShapeDecorator::setRedBorder(Shape* decoratedShape)
+void RedShapeDecorator::setRedBorder(shared_ptr<Shape> decoratedShape)
 {
 	cout << "Border Color: Red" << endl;
 }

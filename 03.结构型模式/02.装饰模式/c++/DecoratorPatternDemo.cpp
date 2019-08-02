@@ -6,11 +6,14 @@ using namespace std;
 
 int main(void)
 {
-	Shape* circle = new Circle();
+	shared_ptr<Shape> circle(new Circle());
 
-	Shape* redCircle = new RedShapeDecorator(new Circle());
+	shared_ptr<Shape> redShapeDecorator(new Circle());
+	shared_ptr<Shape> redCircle(redShapeDecorator);
 
-	Shape* redRectangle = new RedShapeDecorator(new Rectangle());
+	shared_ptr<Shape> redShapeDecorator2(new Rectangle());
+	shared_ptr<Shape> redRectangle(redShapeDecorator2);
+
 	cout << "Circle with normal border" << endl;
 	circle->draw();
 
@@ -22,10 +25,6 @@ int main(void)
 	cout << endl;
 	cout << "Rectangle of red border" << endl;
 	redRectangle->draw();
-
-	delete circle;
-	delete redCircle;
-	delete redRectangle;
 
 	return 0;
 }
