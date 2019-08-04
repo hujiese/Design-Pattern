@@ -14,7 +14,7 @@ void AudioPlayer::play(string audioType, string fileName)
 	//mediaAdapter 提供了播放其他文件格式的支持
 	else if (audioType == "mp4" || audioType == "vlc")
 	{
-		mediaAdapter = new MediaAdapter(audioType);
+		mediaAdapter.reset(new MediaAdapter(audioType));
 		mediaAdapter->play(audioType, fileName);
 	}
 	else
@@ -25,9 +25,4 @@ void AudioPlayer::play(string audioType, string fileName)
 
 AudioPlayer::~AudioPlayer()
 {
-	if (mediaAdapter != NULL)
-	{
-		delete mediaAdapter;
-		mediaAdapter = NULL;
-	}
 }

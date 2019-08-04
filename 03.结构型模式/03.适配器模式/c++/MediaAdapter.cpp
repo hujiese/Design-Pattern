@@ -8,10 +8,10 @@ MediaAdapter::MediaAdapter()
 MediaAdapter::MediaAdapter(string audioType)
 {
 	if (audioType == "vlc"){
-		advancedMusicPlayer = new VlcPlayer();
+		advancedMusicPlayer.reset(new VlcPlayer());
 	}
 	else if (audioType == "mp4"){
-		advancedMusicPlayer = new Mp4Player();
+		advancedMusicPlayer.reset(new Mp4Player());
 	}
 }
 
@@ -27,9 +27,4 @@ void MediaAdapter::play(string audioType, string fileName)
 
 MediaAdapter::~MediaAdapter()
 {
-	if (advancedMusicPlayer != NULL)
-	{
-		delete advancedMusicPlayer;
-		advancedMusicPlayer = NULL;
-	}
 }

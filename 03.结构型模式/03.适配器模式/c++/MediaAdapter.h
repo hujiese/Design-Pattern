@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "MediaPlayer.h"
 #include "AdvancedMediaPlayer.h"
 #include "VlcPlayer.h"
@@ -15,6 +16,6 @@ public:
 	virtual ~MediaAdapter();
 
 protected:
-	AdvancedMediaPlayer* advancedMusicPlayer;
+	shared_ptr<AdvancedMediaPlayer> advancedMusicPlayer;
 };
 
