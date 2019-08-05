@@ -7,20 +7,19 @@ Employee::Employee()
 
 Employee::Employee(string name, string dept, int sal) :name(name), dept(dept), salary(sal)
 {
-	subordinates = new list<Employee *>();
 }
 
-void Employee::add(Employee* e)
+void Employee::add(shared_ptr<Employee> e)
 {
-	subordinates->push_back(e);
+	subordinates.push_back(e);
 }
 
-void Employee::remove(Employee* e)
+void Employee::remove(shared_ptr<Employee> e)
 {
-	subordinates->remove(e);
+	subordinates.remove(e);
 }
 
-list<Employee *>* Employee::getSubordinates() const
+list<shared_ptr<Employee>> Employee::getSubordinates() const
 {
 	return subordinates;
 }
@@ -32,9 +31,4 @@ string Employee::toString() const
 
 Employee::~Employee()
 {
-	if (subordinates != NULL)
-	{
-		delete subordinates;
-		subordinates = NULL;
-	}
 }

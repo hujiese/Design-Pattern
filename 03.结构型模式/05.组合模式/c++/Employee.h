@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <memory>
 using namespace std;
 
 class Employee
@@ -9,9 +10,9 @@ class Employee
 public:
 	explicit Employee();
 	Employee(string name, string dept, int sal);
-	void add(Employee* e);
-	void remove(Employee* e);
-	list<Employee *>* getSubordinates() const;
+	void add(shared_ptr<Employee> e);
+	void remove(shared_ptr<Employee> e);
+	list<shared_ptr<Employee>> getSubordinates() const;
 	string toString() const;
 	virtual ~Employee();
 
@@ -19,6 +20,6 @@ private:
 	string name;
 	string dept;
 	int salary;
-	list<Employee *>* subordinates;
+	list<shared_ptr<Employee>> subordinates;
 };
 

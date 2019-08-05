@@ -3,17 +3,17 @@ using namespace std;
 
 int main(void)
 {
-	Employee* CEO = new Employee("John", "CEO", 30000);
+	shared_ptr<Employee> CEO(new Employee("John", "CEO", 30000));
 
-	Employee* headSales = new Employee("Robert", "Head Sales", 20000);
+	shared_ptr<Employee> headSales(new Employee("Robert", "Head Sales", 20000));
 
-	Employee* headMarketing = new Employee("Michel", "Head Marketing", 20000);
+	shared_ptr<Employee> headMarketing(new Employee("Michel", "Head Marketing", 20000));
 
-	Employee* clerk1 = new Employee("Laura", "Marketing", 10000);
-	Employee* clerk2 = new Employee("Bob", "Marketing", 10000);
+	shared_ptr<Employee> clerk1(new Employee("Laura", "Marketing", 10000));
+	shared_ptr<Employee> clerk2(new Employee("Bob", "Marketing", 10000));
 
-	Employee* salesExecutive1 = new Employee("Richard", "Sales", 10000);
-	Employee* salesExecutive2 = new Employee("Rob", "Sales", 10000);
+	shared_ptr<Employee> salesExecutive1(new Employee("Richard", "Sales", 10000));
+	shared_ptr<Employee> salesExecutive2(new Employee("Rob", "Sales", 10000));
 
 	CEO->add(headSales);
 	CEO->add(headMarketing);
@@ -26,19 +26,12 @@ int main(void)
 
 	//打印该组织的所有员工
 	cout << CEO->toString() << endl;
-	for (Employee* headEmployee : *(CEO->getSubordinates())) {
+	for (shared_ptr<Employee> headEmployee : CEO->getSubordinates()) {
 		cout << headEmployee->toString() << endl;
-		for (Employee* employee : *(headEmployee->getSubordinates())) {
+		for (shared_ptr<Employee> employee : headEmployee->getSubordinates()) {
 			cout << employee->toString() << endl;
 		}
 	}
 
-	delete CEO;
-	delete headSales;
-	delete headMarketing;
-	delete clerk1; 
-	delete clerk2;
-	delete salesExecutive1;
-	delete salesExecutive2;
 	return 0;
 }
