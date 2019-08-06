@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Shape.h"
 #include "Square.h"
 #include "Rectangle.h"
@@ -15,8 +16,8 @@ public:
 	virtual ~ShapeMaker();
 
 private:
-	Shape* circle;
-	Shape* rectangle;
-	Shape* square;
+	shared_ptr<Shape> circle;
+	shared_ptr<Shape> rectangle;
+	shared_ptr<Shape> square;
 };
 

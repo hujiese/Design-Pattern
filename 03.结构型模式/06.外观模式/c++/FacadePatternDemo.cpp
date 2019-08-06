@@ -4,12 +4,11 @@ using namespace std;
 
 int main(void)
 {
-	ShapeMaker* shapeMaker = new ShapeMaker();
+	shared_ptr<ShapeMaker> shapeMaker(new ShapeMaker());
 
 	shapeMaker->drawCircle();
 	shapeMaker->drawRectangle();
 	shapeMaker->drawSquare();
 
-	delete shapeMaker;
 	return 0;
 }
