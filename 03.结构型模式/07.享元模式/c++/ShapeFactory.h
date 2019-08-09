@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <map>
+#include <memory>
 #include <string>
 #include "Shape.h"
 #include "Circle.h"
@@ -9,10 +10,10 @@ class ShapeFactory
 {
 public:
 	ShapeFactory();
-	static Shape* getCircle(const string color);
+	static shared_ptr<Shape> getCircle(const string color);
 	virtual ~ShapeFactory();
 
 private :
-	static map<string, Shape*>* circleMap;
+	static map<string, shared_ptr<Shape>> circleMap;
 };
 
