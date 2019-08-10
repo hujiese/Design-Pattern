@@ -5,7 +5,7 @@ BuyStock::BuyStock()
 {
 }
 
-BuyStock::BuyStock(Stock* abcStock) :abcStock(abcStock)
+BuyStock::BuyStock(shared_ptr<Stock> abcStock) :abcStock(abcStock)
 {
 }
 

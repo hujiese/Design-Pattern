@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Order.h"
 #include "Stock.h"
 class BuyStock :
@@ -6,11 +7,11 @@ class BuyStock :
 {
 public:
 	explicit BuyStock();
-	BuyStock(Stock* abcStock);
+	BuyStock(shared_ptr<Stock> abcStock);
 	void execute();
 	virtual ~BuyStock();
 
 private:
-	Stock* abcStock;
+	shared_ptr<Stock> abcStock;
 };
 

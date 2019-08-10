@@ -7,21 +7,16 @@ using namespace std;
 
 int main(void)
 {
-	Stock* abcStock = new Stock();
+	shared_ptr<Stock> abcStock(new Stock());
 
-	BuyStock* buyStockOrder = new BuyStock(abcStock);
-	SellStock* sellStockOrder = new SellStock(abcStock);
+	shared_ptr<BuyStock> buyStockOrder(new BuyStock(abcStock));
+	shared_ptr<SellStock> sellStockOrder(new SellStock(abcStock));
 
-	Broker* broker = new Broker();
+	shared_ptr<Broker> broker(new Broker());
 	broker->takeOrder(buyStockOrder);
 	broker->takeOrder(sellStockOrder);
 
 	broker->placeOrders();
-
-	delete abcStock;
-	delete buyStockOrder;
-	delete sellStockOrder;
-	delete broker;
 
 	return 0;
 }

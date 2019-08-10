@@ -5,7 +5,7 @@ SellStock::SellStock()
 {
 }
 
-SellStock::SellStock(Stock* abcStock) :abcStock(abcStock)
+SellStock::SellStock(shared_ptr<Stock> abcStock) :abcStock(abcStock)
 {
 }
 
