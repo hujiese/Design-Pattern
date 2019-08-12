@@ -9,7 +9,7 @@ AbstractLogger::AbstractLogger(int level) :level(level)
 {
 }
 
-void AbstractLogger::setNextLogger(AbstractLogger* nextLogger)
+void AbstractLogger::setNextLogger(weak_ptr<AbstractLogger> nextLogger)
 {
 	this->nextLogger = nextLogger;
 }
@@ -19,8 +19,9 @@ void AbstractLogger::logMessage(int level, string message)
 	if (this->level <= level){
 		write(message);
 	}
-	if (nextLogger != NULL){
-		nextLogger->logMessage(level, message);
+	if (!nextLogger.expired()){
+		shared_ptr<AbstractLogger> temp = nextLogger.lock();
+		temp->logMessage(level, message);
 	}
 }
 

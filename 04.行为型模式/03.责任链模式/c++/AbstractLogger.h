@@ -1,5 +1,5 @@
 #pragma once
-
+#include <memory>
 #include <string>
 #define  INFO  1
 #define  DEBUG 2
@@ -11,13 +11,13 @@ class AbstractLogger
 public:
 	AbstractLogger();
 	AbstractLogger(int level);
-	void setNextLogger(AbstractLogger* nextLogger);
+	void setNextLogger(weak_ptr<AbstractLogger> nextLogger);
 	void logMessage(int level, string message);
 	virtual ~AbstractLogger();
 
 protected:
 	int level;
-	AbstractLogger* nextLogger;
+	weak_ptr<AbstractLogger> nextLogger;
 	virtual void write(string message);
 };
 

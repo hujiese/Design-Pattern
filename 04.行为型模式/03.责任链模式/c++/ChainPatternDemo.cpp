@@ -1,3 +1,4 @@
+#include <memory>
 #include "AbstractLogger.h"
 #include "ConsoleLogger.h"
 #include "ErrorLogger.h"
@@ -6,9 +7,9 @@ using namespace std;
 
 int main(void)
 {
-	AbstractLogger* errorLogger = new ErrorLogger(ERROR);
-	AbstractLogger* fileLogger = new FileLogger(DEBUG);
-	AbstractLogger* consoleLogger = new ConsoleLogger(INFO);
+	shared_ptr<AbstractLogger> errorLogger(new ErrorLogger(ERROR));
+	shared_ptr<AbstractLogger> fileLogger(new FileLogger(DEBUG));
+	shared_ptr<AbstractLogger> consoleLogger(new ConsoleLogger(INFO));
 
 	errorLogger->setNextLogger(fileLogger);
 	fileLogger->setNextLogger(consoleLogger);
@@ -18,10 +19,6 @@ int main(void)
 	errorLogger->logMessage(DEBUG, "This is an debug level information.");
 
 	errorLogger->logMessage(ERROR, "This is an error information.");
-
-	delete errorLogger;
-	delete fileLogger;
-	delete consoleLogger;
 
 	return 0;
 }
