@@ -6,7 +6,7 @@ Context::Context()
 
 }
 
-Context::Context(Strategy *strategy){
+Context::Context(std::shared_ptr<Strategy> strategy){
 	this->strategy = strategy;
 }
 

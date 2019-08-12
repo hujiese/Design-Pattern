@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Strategy.h"
 
 class Context
@@ -6,13 +7,13 @@ class Context
 public:
 	Context();
 
-	Context(Strategy *strategy);
+	Context(std::shared_ptr<Strategy>  strategy);
 
 	int executeStrategy(int num1, int num2);
 
 	virtual ~Context();
 
 private:
-	Strategy *strategy;
+	std::shared_ptr<Strategy> strategy;
 };
 
