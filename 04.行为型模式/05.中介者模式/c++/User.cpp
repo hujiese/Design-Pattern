@@ -21,7 +21,8 @@ void User::setName(const string name)
 
 void User::sendMessage(const string message)
 {
-	ChatRoom::showMessage(this, message);
+	shared_ptr<User> temp(this);
+	ChatRoom::showMessage(temp, message);
 }
 
 User::~User()

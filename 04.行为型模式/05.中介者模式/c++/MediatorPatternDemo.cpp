@@ -6,14 +6,11 @@ using namespace std;
 
 int main(void)
 {
-	User* robert = new User("Robert");
-	User* john = new User("John");
+	shared_ptr<User> robert(new User("Robert"));
+	shared_ptr<User> john(new User("John"));
 
 	robert->sendMessage("Hi! John!");
 	john->sendMessage("Hello! Robert!");
-
-	delete robert;
-	delete john;
 
 	return 0;
 }

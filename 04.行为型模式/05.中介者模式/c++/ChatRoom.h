@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <memory>
 #include "User.h"
 using namespace std;
 class User;
@@ -9,7 +10,7 @@ class ChatRoom
 {
 public:
 	ChatRoom();
-	static void showMessage(User* user, string message);
+	static void showMessage(shared_ptr<User> user, string message);
 	virtual ~ChatRoom();
 };
 
