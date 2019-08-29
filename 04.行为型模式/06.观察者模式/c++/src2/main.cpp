@@ -9,18 +9,14 @@ using namespace std;
 
 int main(void)
 {
-	F_Observer *fObserver = new F_Observer();
-	S_Observer *sObserver = new S_Observer();
-	T_Observer *tObserver = new T_Observer();
-	Subject *subject = new Subject();
-	subject->addAttach(fObserver);
-	subject->addAttach(sObserver);
-	subject->addAttach(tObserver);
-	subject->setMsg("msg change");
+	shared_ptr<Observer> fObserver(new F_Observer());
+	shared_ptr<Observer> sObserver(new S_Observer());
+	shared_ptr<Observer> tObserver(new T_Observer());
+	Subject subject;
+	subject.addAttach(fObserver);
+	subject.addAttach(sObserver);
+	subject.addAttach(tObserver);
+	subject.setMsg("msg change");
 
-	delete fObserver;
-	delete sObserver;
-	delete tObserver;
-	delete subject;
 	return 0;
 }

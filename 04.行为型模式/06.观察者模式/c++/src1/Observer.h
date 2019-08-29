@@ -1,7 +1,9 @@
 #ifndef __OBSERVER_H
 #define __OBSERVER_H
-#pragma once
-#include "Subject.h"
+#include <memory>
+
+using namespace std;
+
 class Subject;
 class Observer
 {
@@ -11,7 +13,7 @@ public:
 	virtual ~Observer();
 
 protected:
-	Subject* subject;
+	shared_ptr<Subject> subject;
 };
 
 #endif

@@ -11,7 +11,7 @@ class HexaObserver :
 	public Observer
 {
 public:
-	HexaObserver(Subject* subject);
+	HexaObserver(shared_ptr<Subject> subject);
 	virtual void update();
 	virtual ~HexaObserver();
 };

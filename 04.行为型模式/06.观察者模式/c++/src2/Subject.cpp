@@ -3,7 +3,6 @@
 
 Subject::Subject()
 {
-	observers = new list<Observer *>();
 }
 
 void Subject::setMsg(const string msg)
@@ -11,23 +10,23 @@ void Subject::setMsg(const string msg)
 	notifyAll(msg);
 }
 
-void Subject::addAttach(Observer* observer)
+void Subject::addAttach(weak_ptr<Observer> observer)
 {
-	observers->push_back(observer);
+	observers.push_back(observer);
 }
 
 void Subject::notifyAll(const string msg)
 {
-	for (Observer *observer : *observers) {
-		observer->update(msg);
+	for (weak_ptr<Observer> observer : observers) 
+	{
+		if (!observer.expired())
+		{
+			shared_ptr<Observer> obj = observer.lock();
+			obj->update(msg);
+		}
 	}
 }
 
 Subject::~Subject()
 {
-	if (observers != NULL)
-	{
-		delete observers;
-		observers = NULL;
-	}
 }

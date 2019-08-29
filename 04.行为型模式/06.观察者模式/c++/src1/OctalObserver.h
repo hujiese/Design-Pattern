@@ -10,7 +10,7 @@ class OctalObserver :
 	public Observer
 {
 public:
-	OctalObserver(Subject* subject);
+	OctalObserver(shared_ptr<Subject> subject);
 	virtual void update();
 	virtual ~OctalObserver();
 };

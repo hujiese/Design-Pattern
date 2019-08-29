@@ -3,7 +3,6 @@
 
 Subject::Subject()
 {
-	observers = new list<Observer *>();
 }
 
 int Subject::getState() {
@@ -15,20 +14,21 @@ void Subject::setState(int const state) {
 	notifyAllObservers();
 }
 
-void Subject::attach(Observer* observer){
-	observers->push_back(observer);
+void Subject::attach(weak_ptr<Observer> observer){
+	observers.push_back(observer);
 }
 
 void Subject::notifyAllObservers(){
-	for (Observer *observer : *observers) {
-		observer->update();
+	for (weak_ptr<Observer> observer : observers) 
+	{
+		if (!observer.expired())
+		{
+			shared_ptr<Observer> ob = observer.lock();
+			ob->update();
+		}
 	}
 }
 
 Subject::~Subject()
 {
-	if (observers != NULL)
-	{
-		delete observers;
-	}
 }

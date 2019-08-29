@@ -11,7 +11,7 @@ class BinaryObserver :
 	public Observer
 {
 public:
-	BinaryObserver(Subject* subject);
+	BinaryObserver(shared_ptr<Subject> subject);
 	virtual void update();
 	virtual ~BinaryObserver();
 };

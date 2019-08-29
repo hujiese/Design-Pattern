@@ -7,7 +7,7 @@ using namespace std;
 
 int main(void)
 {
-	Subject *subject = new Subject();
+	shared_ptr<Subject> subject(new Subject());
 
 	new HexaObserver(subject);
 	new OctalObserver(subject);
@@ -18,6 +18,5 @@ int main(void)
 	cout << "Second state change: 10" << endl;
 	subject->setState(10);
 
-	delete subject;
 	return 0;
 }

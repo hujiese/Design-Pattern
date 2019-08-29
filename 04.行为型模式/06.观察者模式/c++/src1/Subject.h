@@ -12,12 +12,12 @@ public:
 	Subject();
 	int getState();
 	void setState(int const state);
-	void attach(Observer* observer);
+	void attach(weak_ptr<Observer> observer);
 	void notifyAllObservers();
 	virtual ~Subject();
 
 private:
-	list<Observer *> *observers;
+	list<weak_ptr<Observer>> observers;
 	int state;
 };
 
